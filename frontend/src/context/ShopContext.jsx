@@ -41,7 +41,7 @@ const ShopContextProvider = (props) => {
 
     if (token) {
       try {
-        await axios.post('http://localhost:4000/api/cart/add', { itemId, size }, { headers: { token } });
+        await axios.post('https://e-commerce-project-mxdb.onrender.com/api/cart/add', { itemId, size }, { headers: { token } });
       } catch (error) {
         console.log(error);
         toast.error(error.message);
@@ -71,7 +71,7 @@ const ShopContextProvider = (props) => {
 
     if (token) {
       try {
-        await axios.post('http://localhost:4000/api/cart/update', { itemId, size, quantity }, { headers: { token } });
+        await axios.post('https://e-commerce-project-mxdb.onrender.com/api/cart/update', { itemId, size, quantity }, { headers: { token } });
       } catch (error) {
         console.log(error);
         toast.error(error.message);
@@ -96,7 +96,7 @@ const ShopContextProvider = (props) => {
 
   const getProductsData = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/product/list');
+      const response = await axios.get('https://e-commerce-project-mxdb.onrender.com/api/product/list');
       if (response.data.success) {
         setProducts(response.data.products);
       } else {
@@ -110,7 +110,7 @@ const ShopContextProvider = (props) => {
 
   const getUserCart = async (userToken) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/cart/get', {}, { headers: { token: userToken } });
+      const response = await axios.post('https://e-commerce-project-mxdb.onrender.com/api/cart/get', {}, { headers: { token: userToken } });
       if (response.data.success) {
         setCartItems(response.data.cartData);
       }
