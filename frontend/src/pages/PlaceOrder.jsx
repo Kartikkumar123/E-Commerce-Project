@@ -42,7 +42,7 @@ export default function PlaceOrder() {
         console.log(response);
         try {
 
-          const {data} = axios.post('http://localhost:4000/api/order/verifyRazorpay', response, { headers: { token } });
+          const {data} = axios.post('https://e-commerce-project-mxdb.onrender.com/api/order/verifyRazorpay', response, { headers: { token } });
           if(data.success){
             navigate('/orders')
             setCartItems({})
@@ -84,7 +84,7 @@ export default function PlaceOrder() {
   
       switch (method) {
         case 'cod':
-          const response = await axios.post('http://localhost:4000/api/order/place', orderData, { headers: { token } });
+          const response = await axios.post('https://e-commerce-project-mxdb.onrender.com/api/order/place', orderData, { headers: { token } });
           if (response.data.success) {
             setCartItems({});
             navigate('/orders');
@@ -95,7 +95,7 @@ export default function PlaceOrder() {
 
           case 'stripe':
 
-          const responseStripe = await axios.post('http://localhost:4000/api/order/stripe',orderData,{headers:{token}})
+          const responseStripe = await axios.post('https://e-commerce-project-mxdb.onrender.com/api/order/stripe',orderData,{headers:{token}})
           if(responseStripe.data.success){
             const {session_url} = responseStripe.data
             window.location.replace(session_url)
@@ -107,7 +107,7 @@ export default function PlaceOrder() {
 
           case 'razorpay':
 
-          const responseRazorpay = await axios.post('http://localhost:4000/api/order/razorpay',orderData,{headers:{token}})
+          const responseRazorpay = await axios.post('https://e-commerce-project-mxdb.onrender.com/api/order/razorpay',orderData,{headers:{token}})
           if(responseRazorpay.data.success){
             initPay(responseRazorpay.data.order);           
           }
