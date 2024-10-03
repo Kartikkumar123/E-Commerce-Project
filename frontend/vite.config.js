@@ -11,3 +11,8 @@ export default defineConfig({
     }
   }
 })
+export default {
+  optimizeDeps: {
+    include: ['react-toastify'],
+  },
+};
