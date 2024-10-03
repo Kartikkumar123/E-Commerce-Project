@@ -21,7 +21,7 @@ export default function Login() {
       if(currentState === 'Sign Up'){
 
 
-        const response = await axios.post('http://localhost:4000/api/user/register',{name,email,password})
+        const response = await axios.post('https://e-commerce-project-mxdb.onrender.com/api/user/register',{name,email,password})
         if(response.data.success){
           // console.log(response.data);         
             setToken(response.data.token)
@@ -33,7 +33,7 @@ export default function Login() {
         
       }else{
 
-        const response = await axios.post('http://localhost:4000/api/user/login',{email,password})
+        const response = await axios.post('https://e-commerce-project-mxdb.onrender.com/api/user/login',{email,password})
         // console.log(response.data);
         if(response.data.success){
           // console.log(response.data);         
