@@ -9,8 +9,9 @@ export default defineConfig({
     rollupOptions: {
       external: ['react-router-dom'],
     }
-  }
+  
    optimizeDeps: {
     include: ['react-toastify'],
   },
+  }
 })
