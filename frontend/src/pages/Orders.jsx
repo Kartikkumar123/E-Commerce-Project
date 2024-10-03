@@ -16,7 +16,7 @@ export default function Orders() {
         return null
       }
 
-      const response = await axios.post('http://localhost:4000/api/order/userorders',{},{headers:{token}})
+      const response = await axios.post('https://e-commerce-project-mxdb.onrender.com/api/order/userorders',{},{headers:{token}})
      if(response.data.success){
       let allordersItem = []
       response.data.orders.map((order)=>{
