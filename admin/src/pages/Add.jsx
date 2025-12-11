@@ -41,7 +41,7 @@ export default function Add({token}) {
         image4 && formData.append("image4",image4)
 
 
-        const response = await axios.post( "http://localhost:4001/apiproduct/add",formData,{headers:{token}})
+        const response = await axios.post( "http://localhost:4000/apiproduct/add",formData,{headers:{token}})
 
         if(response.data.success){
           toast.success(response.data.message)
