@@ -42,7 +42,7 @@ export default function PlaceOrder() {
         console.log(response);
         try {
 
-          const {data} = axios.post('http://localhost:4000/api/order/verifyRazorpay', response, { headers: { token } });
+          const {data} = axios.post(backendUrl+'/api/order/verifyRazorpay', response, { headers: { token } });
           if(data.success){
             navigate('/orders')
             setCartItems({})
@@ -97,7 +97,7 @@ export default function PlaceOrder() {
 
           case 'stripe':
 
-          const responseStripe = await axios.post('http://localhost:4000/api/order/stripe',orderData,{headers:{token}})
+          const responseStripe = await axios.post(backendUrl+'/api/order/stripe',orderData,{headers:{token}})
 
           if(responseStripe.data.success){
             const {session_url} = responseStripe.data
@@ -110,7 +110,7 @@ export default function PlaceOrder() {
 
           case 'razorpay':
 
-          const responseRazorpay = await axios.post('http://localhost:4000/api/order/razorpay',orderData,{headers:{token}})
+          const responseRazorpay = await axios.post(backendUrl+'/api/order/razorpay',orderData,{headers:{token}})
 
           if(responseRazorpay.data.success){
             initPay(responseRazorpay.data.order);           
