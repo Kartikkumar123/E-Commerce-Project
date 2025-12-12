@@ -15,8 +15,13 @@ const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState('');
   const navigate = useNavigate();
+<<<<<<< HEAD
   
  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+=======
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+>>>>>>> d8a12cac5989a50958de56e41abf4097ff637bfa
 
   const addToCart = async (itemId, size) => {
 
